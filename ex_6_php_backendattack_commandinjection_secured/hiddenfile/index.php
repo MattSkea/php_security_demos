@@ -1,0 +1,1 @@
+<h1>Im hidden by the " .htaccess " file</h1>

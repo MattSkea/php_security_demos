@@ -1,0 +1,32 @@
+<?php
+
+/*
+$password="Hello World!";
+$salt=mcrypt_create_iv(16,MCRYPT_DEV_URANDOM);
+$salt=base64_encode($salt);
+echo "hash:".hash("md5",$password.$salt)."<br>salt:".$salt;
+*/
+
+$hash="599110df3828f464b7ff8d38729e0791";
+$salt="WRcLgPHAR59ol4j0GzXe/g==";
+
+$password="Hello World!";
+
+if (hash("md5",$password.$salt)==$hash)
+    echo "login success";
+else
+    echo "login failed";
+
+$password="Hello World!";
+$peber="ThisIs a very long sentence";
+$options=["cost"=>14];
+$hash= password_hash($password.$peber,PASSWORD_DEFAULT,$options);
+echo $hash."<br>";
+//$hash='$2y$10$TqpN5fKsCWvatTtXxCI5Be7cIQVeNW7GIocTJfyLhvhXHQTx3Wyqq';
+
+if (password_verify($password.$peber,$hash))
+    echo "login success";
+else
+    echo "login failed";
+
+?>
